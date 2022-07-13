@@ -1,0 +1,400 @@
+01-10 11:24:11.571   650   662 D vold    : /system/bin/sgdisk
+01-10 11:24:11.571   650   662 D vold    :     --android-dump
+01-10 11:24:11.571   650   662 D vold    :     /dev/block/vold/disk:8,96
+01-10 11:24:12.793  1414  1466 I PowerManagerService: Going to sleep due to timeout (uid 1000)...
+01-10 11:24:12.794  1414  1414 W UsageStatsService: Event reported without a package name, eventType:16
+01-10 11:24:12.799  1414  1466 E libc    : Access denied finding property "vendor.debug.egl.changepixelformat"
+01-10 11:24:12.815  1414  1466 E libc    : Access denied finding property "vendor.debug.egl.swapinterval"
+01-10 11:24:12.820  1414  1466 V DisplayPowerController: Brightness [66] reason changing to: 'manual', previous reason: 'manual [ dim ]'.
+--------- beginning of crash
+01-10 11:24:13.186  8559  8559 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x70ef200000 in tid 8559 (sgdisk), pid 8559 (sgdisk)
+01-10 11:24:13.205  1414  1466 I chatty  : uid=1000(system) PowerManagerSer identical 25 lines
+01-10 11:24:13.218  1414  1946 D UsbHostManager: Removed device at /dev/bus/usb/001/002: DataTraveler 3.0
+01-10 11:24:13.219  1414  1946 I UsbAlsaManager: USB Audio Device Removed: null
+01-10 11:24:13.221  1414  1466 E libc    : Access denied finding property "vendor.debug.egl.swapinterval"
+01-10 11:24:13.235  8562  8562 I crash_dump64: obtaining output fd from tombstoned, type: kDebuggerdTombstone
+01-10 11:24:13.236  1063  1063 I /system/bin/tombstoned: received crash request for pid 8559
+01-10 11:24:13.237  8562  8562 I crash_dump64: performing dump of process 8559 (target tid = 8559)
+01-10 11:24:13.238  1414  1466 E libc    : Access denied finding property "vendor.debug.egl.swapinterval"
+01-10 11:24:13.238  8562  8562 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+01-10 11:24:13.238  8562  8562 F DEBUG   : Build fingerprint: 'google/blueline/blueline:10/QQ1A.200105.003/6079943:user/release-keys'
+01-10 11:24:13.238  8562  8562 F DEBUG   : Revision: 'MP1.0'
+01-10 11:24:13.238  8562  8562 F DEBUG   : ABI: 'arm64'
+01-10 11:24:13.239  8562  8562 F DEBUG   : Timestamp: 2020-01-10 11:24:13+0300
+01-10 11:24:13.239  8562  8562 F DEBUG   : pid: 8559, tid: 8559, name: sgdisk  >>> /system/bin/sgdisk <<<
+01-10 11:24:13.239  8562  8562 F DEBUG   : uid: 0
+01-10 11:24:13.239  8562  8562 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x70ef200000
+01-10 11:24:13.239  8562  8562 F DEBUG   :     x0  00000070eee0a808  x1  00000070cedf62b8  x2  0000000019a1e7b8  x3  00000070ef1fffc0
+01-10 11:24:13.239  8562  8562 F DEBUG   :     x4  00000070e8814ac0  x5  0000007108c1e808  x6  b1fd7e79ad85a63b  x7  dafa88f5e5b77705
+01-10 11:24:13.239  8562  8562 F DEBUG   :     x8  750dfb61d30e70b5  x9  99a1d316a9d926b7  x10 01bdf1a57d2a5fcb  x11 eecaedef65fe53b2
+01-10 11:24:13.239  8562  8562 F DEBUG   :     x12 e62b5fe6e687628f  x13 0997e077bf9e5262  x14 932f46601a12ebb4  x15 0000000000000000
+01-10 11:24:13.239  8562  8562 F DEBUG   :     x16 0000005556f4e6f8  x17 00000070ef473280  x18 00000070f08c8000  x19 0000000019e14000
+01-10 11:24:13.239  8562  8562 F DEBUG   :     x20 00000070eee0a808  x21 0000000002ac3c00  x22 0000000019e14000  x23 00000070cea00ac0
+01-10 11:24:13.239  8562  8562 F DEBUG   :     x24 00000000000cf0a0  x25 0000000000000020  x26 00000070efa1d020  x27 0000007fdc15f2e0
+01-10 11:24:13.239  8562  8562 F DEBUG   :     x28 0000000000000000  x29 0000007fdc15f060
+01-10 11:24:13.239  8562  8562 F DEBUG   :     sp  0000007fdc15f030  lr  0000005556f4b59c  pc  00000070ef473238
+01-10 11:24:13.241  8562  8562 F DEBUG   : 
+01-10 11:24:13.241  8562  8562 F DEBUG   : backtrace:
+01-10 11:24:13.241  8562  8562 F DEBUG   :       #00 pc 000000000007e238  /apex/com.android.runtime/lib64/bionic/libc.so (__memcpy+296) (BuildId: 676a709a0ee633ec9cf6ab05ec6410ae)
+01-10 11:24:13.241  8562  8562 F DEBUG   :       #01 pc 0000000000021598  /system/bin/sgdisk (DiskIO::Read(void*, int)+156) (BuildId: 023ba9b1fa2b909f288ee8f92630e863)
+01-10 11:24:13.241  8562  8562 F DEBUG   :       #02 pc 0000000000019120  /system/bin/sgdisk (GPTData::LoadPartitionTable(GPTHeader const&, DiskIO&, unsigned long)+128) (BuildId: 023ba9b1fa2b909f288ee8f92630e863)
+01-10 11:24:13.241  8562  8562 F DEBUG   :       #03 pc 0000000000018780  /system/bin/sgdisk (GPTData::ForceLoadGPTData()+964) (BuildId: 023ba9b1fa2b909f288ee8f92630e863)
+01-10 11:24:13.241  8562  8562 F DEBUG   :       #04 pc 00000000000181dc  /system/bin/sgdisk (GPTData::PartitionScan()+104) (BuildId: 023ba9b1fa2b909f288ee8f92630e863)
+01-10 11:24:13.241  8562  8562 F DEBUG   :       #05 pc 0000000000016230  /system/bin/sgdisk (GPTData::LoadPartitions(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)+276) (BuildId: 023ba9b1fa2b909f288ee8f92630e863)
+01-10 11:24:13.241  8562  8562 F DEBUG   :       #06 pc 000000000000b690  /system/bin/sgdisk (main+1600) (BuildId: 023ba9b1fa2b909f288ee8f92630e863)
+01-10 11:24:13.242  8562  8562 F DEBUG   :       #07 pc 000000000007d798  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+108) (BuildId: 676a709a0ee633ec9cf6ab05ec6410ae)
+01-10 11:24:13.254  1414  1466 E libc    : Access denied finding property "vendor.debug.egl.swapinterval"
+01-10 11:24:13.254  1414  1466 I DisplayPowerController: Blocking screen off
+01-10 11:24:13.254  1414  1466 I DisplayPowerController: Unblocked screen off after 0 ms
+01-10 11:24:13.255  1414  1969 W NativeCrashListener: Couldn't find ProcessRecord for pid 8559
+01-10 11:24:13.255  8562  8562 E crash_dump64: AM data write failed: Broken pipe
+01-10 11:24:13.256  1063  1063 E /system/bin/tombstoned: Tombstone written to: /data/tombstones/tombstone_01
+01-10 11:24:13.258  1414  1464 I BootReceiver: Copying /data/tombstones/tombstone_01 to DropBox (SYSTEM_TOMBSTONE)
+01-10 11:24:13.259  1414  1464 I DropBoxManagerService: add tag=SYSTEM_TOMBSTONE isTagEnabled=true flags=0x2
+01-10 11:24:13.281  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.281  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.286   650   662 E vold    : Process did not exit normally, status: 11
+01-10 11:24:13.286   650   662 W vold    : sgdisk failed to scan /dev/block/vold/disk:8,96
+01-10 11:24:13.307   908  1054 D VSC     : @ 251.738: [Device Orientation] Stop accel
+01-10 11:24:13.313   908  1054 D VSC     : @ 251.745: [Binned Brightness] Stop proximity
+01-10 11:24:13.313   908  1054 D VSC     : @ 251.745: [Binned Brightness] Stop ambient_light
+01-10 11:24:13.315   908  1054 I ASH     : @ 251.746: tmd2725: Disabling sensor 0
+01-10 11:24:13.315   908  1054 I ASH     : @ 251.746: tmd2725: ALS last sample data 12.390 lux
+01-10 11:24:13.315   908  1054 I VSC     : @ 251.746: [BINNED_BRIGHTNESS] Deleted instance at 0xb2060df8
+01-10 11:24:13.316  1414  1466 V DisplayPowerController: Brightness [0] reason changing to: 'screen_off', previous reason: 'manual'.
+01-10 11:24:13.317  1414  1451 I DisplayManagerService: Display device changed state: "Встроенный экран", OFF
+01-10 11:24:13.317   669   669 D SurfaceFlinger: Setting power mode 0 on display 0
+01-10 11:24:13.321   671   693 I SDM     : DisplayBase::SetDisplayState: Set state = 0, display 0
+01-10 11:24:13.324  2022  2022 I WallpaperService: engine paused
+01-10 11:24:13.330   908  1054 I ASH     : @ 251.761: touch gesture: received SNS_TBN_RELEASE_BUS_REQ_V01: kernel releasing bus
+01-10 11:24:13.447   669   669 D SurfaceFlinger: Finished setting power mode 0 on display 0
+01-10 11:24:13.448  1414  1924 D SurfaceControl: Excessive delay in setPowerMode()
+01-10 11:24:13.449  1414  1466 I DreamManagerService: Entering dreamland.
+01-10 11:24:13.450  1414  1466 I PowerManagerService: Dozing...
+01-10 11:24:13.451  1414  1448 I DreamController: Starting dream: name=ComponentInfo{com.android.systemui/com.android.systemui.doze.DozeService}, isTest=false, canDoze=true, userId=0
+01-10 11:24:13.463  2792  2792 I AiAiCaptions: isCaptionsOn() can't find setting.
+01-10 11:24:13.465  1947  1947 D StatusBar: updateQsExpansionEnabled - QS Expand enabled: false
+01-10 11:24:13.470  1947  1947 D StatusBar: updateQsExpansionEnabled - QS Expand enabled: false
+01-10 11:24:13.474  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.479  1947  1947 I chatty  : uid=10156(com.android.systemui) identical 6 lines
+01-10 11:24:13.479  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.485   908  1054 D VSC     : @ 251.916: [Device Pickup Sensor] Request accel, interval 20000000 ns, latency 100000000 ns
+01-10 11:24:13.493   908  1054 I VSC     : @ 251.925: [double-tap-prox-gated] configuring sensor with interval: 1000000, latency: 0
+01-10 11:24:13.493   908  1054 D VSC     : @ 251.925: [Proximity Gated Double Tap Gesture] Request proximity, interval 100000000 ns, latency 0 ns
+01-10 11:24:13.496  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.497  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.497   908  1054 D VSC     : @ 251.929: [Proximity Gated Double Tap Gesture] Request touch_gesture, interval 1000000 ns, latency 0 ns
+01-10 11:24:13.497  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.497  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.501   896   896 V ContextHubHal: sendMessageToHub
+01-10 11:24:13.503   908  1054 D CHRE    : @ 251.934: Parsed nanoapp message from host: app ID 0x476f6f676c00100e, endpoint 0x1, msgType 202, payload size 5
+01-10 11:24:13.506  2074  2177 I QCNEJ/CndHalConnector: -> SND notifyScreenStateChanged(false)
+01-10 11:24:13.506  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.506  1947  1947 I chatty  : uid=10156(com.android.systemui) identical 2 lines
+01-10 11:24:13.506  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:13.507  2074  2177 I QCNEJ/CndHalConnector: -> SND notifyScreenStateChanged(false)
+01-10 11:24:13.518  1947  1947 I Elmyra/ElmyraService: Gated by KeyguardDeferredSetup [mDeferredSetupComplete -> false]
+01-10 11:24:13.522  2917  2917 D NfcService: MSG_APPLY_SCREEN_STATE 2
+01-10 11:24:13.523   908  1054 I ASH     : @ 251.955: touch gesture: [touch gesture] subscribed
+01-10 11:24:13.538  2984  2984 E SUI_svcsock: svc_sock_send_message(suisvc): invalid remote socket suitch
+01-10 11:24:13.539  2984  2984 E SUI_svcsock: svc_sock_send_message(suisvc): invalid remote socket suilst
+01-10 11:24:13.543  5593  5593 I DeviceStatusMonitor: onReceive() : Action = android.intent.action.SCREEN_OFF
+01-10 11:24:13.571  2897  3816 E WorkerLoader: No worker found for Worker ID [trainingcache].
+01-10 11:24:13.571  2897  3816 W WorkController: Loading failed for worker [trainingcache]: worker not found
+01-10 11:24:13.572  2897  3816 W ServiceWorker: TrainingCache cache SCREEN_OFF failure
+01-10 11:24:13.572  2897  3816 W ServiceWorker: com.google.android.apps.gsa.search.core.service.h.a.a: No worker found for Worker ID [trainingcache].
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at com.google.android.apps.gsa.search.core.service.g.a.c.a(SourceFile:3)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at com.google.android.libraries.gsa.n.a.n.a(SourceFile:2)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at com.google.common.u.a.dk.b(SourceFile:7)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at com.google.common.u.a.cg.run(SourceFile:17)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at com.google.common.u.a.dm.run(SourceFile:10)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at com.google.apps.tiktok.concurrent.ar.run(SourceFile:2)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at com.google.apps.tiktok.concurrent.b.run(SourceFile:4)
+01-10 11:24:13.572  2897  3816 W ServiceWorker: 	at java.lang.Thread.run(Thread.java:919)
+01-10 11:24:13.587  1414  1946 D UsbHostManager: USB device attached: vidpid 0951:1666 mfg/product/ver/serial Kingston/DataTraveler 3.0/1.10/4CEDFB74A342E311A97C16F0 hasAudio/HID/Storage: false/false/true
+01-10 11:24:13.589  1414  1946 D UsbDeviceDescriptor:   1 configs
+01-10 11:24:13.590  1414  1946 D UsbHostManager: Added device UsbDevice[mName=/dev/bus/usb/001/003,mVendorId=2385,mProductId=5734,mClass=0,mSubclass=0,mProtocol=0,mManufacturerName=Kingston,mProductName=DataTraveler 3.0,mVersion=1.10,mSerialNumberReader=com.android.server.usb.UsbSerialReader@553d1fd,mConfigurations=[
+01-10 11:24:13.590  1414  1946 D UsbHostManager: UsbConfiguration[mId=1,mName=null,mAttributes=128,mMaxPower=150,mInterfaces=[
+01-10 11:24:13.590  1414  1946 D UsbHostManager: UsbInterface[mId=0,mAlternateSetting=0,mName=null,mClass=8,mSubclass=6,mProtocol=80,mEndpoints=[
+01-10 11:24:13.590  1414  1946 D UsbHostManager: UsbEndpoint[mAddress=129,mAttributes=2,mMaxPacketSize=512,mInterval=0]
+01-10 11:24:13.590  1414  1946 D UsbHostManager: UsbEndpoint[mAddress=2,mAttributes=2,mMaxPacketSize=512,mInterval=0]]]]
+01-10 11:24:13.698  1414  1946 D UsbHostManager: Removed device at /dev/bus/usb/001/003: DataTraveler 3.0
+01-10 11:24:13.698  1414  1946 I UsbAlsaManager: USB Audio Device Removed: null
+01-10 11:24:13.741  2474  2490 I .gms.persisten: Background concurrent copying GC freed 122492(6561KB) AllocSpace objects, 17(684KB) LOS objects, 49% free, 6978KB/13MB, paused 101us total 185.871ms
+01-10 11:24:13.821  1414  1946 D UsbHostManager: Removed device at /dev/bus/usb/002/001 was already gone
+01-10 11:24:13.821  1414  1946 D UsbHostManager: Removed device at /dev/bus/usb/001/001 was already gone
+01-10 11:24:14.091   845  1155 I netd    : trafficSwapActiveStatsMap() <2.63ms>
+01-10 11:24:14.098   845  1155 I netd    : tetherGetStats() <3.70ms>
+01-10 11:24:14.249  2897  3780 W SearchServiceCore: Abort, client detached.
+01-10 11:24:14.263  1414  2122 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.stats.service.DropBoxEntryAddedReceiver
+01-10 11:24:14.264  1414  1457 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.DROPBOX_ENTRY_ADDED flg=0x10 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+01-10 11:24:14.605  2897  3780 W SearchServiceCore: Abort, client detached.
+01-10 11:24:15.335  2474  8528 W ctxmgr  : [WorkManager] Long workInfo: pkg=com.google.android.gms, lbl=DispatcherDeliver, start=2020-01-10 11:24:13.562+0300, stop=2020-01-10 11:24:15.333+0300, durtn=1771ms [CONTEXT service_id=47 ]
+01-10 11:24:19.282  1414  8419 I BatteryStatsService: In wakeup_callback: resumed from suspend
+01-10 11:24:19.284   908  1054 I CHRE    : @ 255.393: [ImuCal] [NanoSensorCal:MAG_UT] Offset | Temperature [C]: 0.234012, 4.828800, 3.609052 | 30.86
+01-10 11:24:19.284   908  1054 D VSC     : @ 257.600: [Device Pickup Sensor] Stop accel
+01-10 11:24:19.284   908  1054 D VSC     : @ 257.602: [Device Pickup Sensor] Request proximity, interval 66666666 ns, latency 66666666 ns
+01-10 11:24:19.284   908  1054 I VSC     : @ 257.602: [DevicePickup] sending event
+01-10 11:24:19.284   908  1054 D VSC     : @ 257.609: [Device Pickup Sensor] Request motion_detect, interval 18446744073709551615 ns, latency 0 ns
+01-10 11:24:19.284   908  1054 D VSC     : @ 257.610: [Device Pickup Sensor] Stop proximity
+01-10 11:24:19.284   908  1054 D VSC     : @ 257.611: [Device Pickup Sensor] Stop motion_detect
+01-10 11:24:19.287  1414  1906 I PowerManagerService: Waking up from Dozing (uid=10156, reason=WAKE_REASON_GESTURE, details=com.android.systemui:NODOZE)...
+01-10 11:24:19.288  1414  1414 W UsageStatsService: Event reported without a package name, eventType:15
+01-10 11:24:19.288   908  1054 D ASH     : @ 257.716: Sending to ASH storage: 0 144 3
+01-10 11:24:19.304  1414  1466 I DisplayPowerController: Blocking screen on until initial contents have been drawn.
+01-10 11:24:19.327  1414  1466 V DisplayPowerController: Brightness [66] reason changing to: 'manual', previous reason: 'screen_off'.
+01-10 11:24:19.328  1414  1451 I DisplayManagerService: Display device changed state: "Встроенный экран", ON
+01-10 11:24:19.328   669   669 D SurfaceFlinger: Setting power mode 2 on display 0
+01-10 11:24:19.330   671   693 I SDM     : DisplayBase::SetDisplayState: Set state = 1, display 0
+01-10 11:24:19.330   908  1054 D VSC     : @ 257.761: [Device Pickup Sensor] Request accel, interval 20000000 ns, latency 100000000 ns
+01-10 11:24:19.337   908  1054 I VSC     : @ 257.766: [BINNED_BRIGHTNESS] Created instance at 0xb2064328
+01-10 11:24:19.337   908  1054 D VSC     : @ 257.766: [Binned Brightness] Request ambient_light, interval 250000000 ns, latency 0 ns
+01-10 11:24:19.340   896   896 V ContextHubHal: sendMessageToHub
+01-10 11:24:19.341  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:19.341  2074  2177 I QCNEJ/CndHalConnector: -> SND notifyScreenStateChanged(true)
+01-10 11:24:19.341  1947  1947 D StatusBar: disable<e i a s b H R c s > disable2<q i n >
+01-10 11:24:19.341  1947  1947 D StatusBar: updateQsExpansionEnabled - QS Expand enabled: true
+01-10 11:24:19.341  2074  2177 I QCNEJ/CndHalConnector: -> SND notifyScreenStateChanged(false)
+01-10 11:24:19.342   908  1054 I ASH     : @ 257.773: tmd2725: Enabling sensor 0
+01-10 11:24:19.342   908  1054 D VSC     : @ 257.773: [Binned Brightness] Request proximity, interval 200000000 ns, latency 0 ns
+01-10 11:24:19.344   908  1054 D CHRE    : @ 257.775: Parsed nanoapp message from host: app ID 0x476f6f676c00100e, endpoint 0x1, msgType 202, payload size 5
+01-10 11:24:19.347  1947  1947 D StatusBar: updateQsExpansionEnabled - QS Expand enabled: true
+01-10 11:24:19.354  3660  3775 I CarrierServices: [256] bxu.a: FiST: Wifi connectivity status true
+01-10 11:24:19.355  3660  4312 I CarrierServices: [280] cdw.a: (PEv2-SM): DisabledState: event Connectivity event
+01-10 11:24:19.355  3660  4338 I CarrierServices: [281] awo.handleMessage: RCS is disabled, skipping config update request
+01-10 11:24:19.355  3660  3775 I CarrierServices: [256] byb.d: Connected state: [1], networkType: [WIFI]
+01-10 11:24:19.372   908  1054 D VSC     : @ 257.804: [Device Orientation] Request accel, interval 66666666 ns, latency 40000000 ns
+01-10 11:24:19.373  1414  1466 I DisplayPowerController: Unblocked screen on after 68 ms
+01-10 11:24:19.400  2022  2022 I WallpaperService: engine resumed
+01-10 11:24:19.474   908  1054 I VSC     : @ 257.905: [BINNED_BRIGHTNESS] Changing state to 2 at 257904 ms
+01-10 11:24:19.566   669   669 D SurfaceFlinger: Finished setting power mode 2 on display 0
+01-10 11:24:19.566  1414  1924 D SurfaceControl: Excessive delay in setPowerMode()
+01-10 11:24:19.567   908  1054 I ASH     : @ 257.998: touch gesture: received SNS_TBN_ACQUIRE_BUS_REQ_V01: kernel requesting bus
+01-10 11:24:19.568  1414  1466 W PowerManagerService: Screen on took 281 ms
+01-10 11:24:19.568  1414  1466 I DreamManagerService: Gently waking up from dream.
+01-10 11:24:19.568  1414  1448 I DreamManagerService: Performing gentle wake from dream.
+01-10 11:24:19.581  1947  1947 I Elmyra/ElmyraService: Gated by KeyguardDeferredSetup [mDeferredSetupComplete -> false]
+01-10 11:24:19.586  2917  2917 D NfcService: MSG_APPLY_SCREEN_STATE 4
+01-10 11:24:19.590  1414  3618 I DreamManagerService: Leaving dreamland.
+01-10 11:24:19.592  1414  1448 I DreamManagerService: Performing gentle wake from dream.
+01-10 11:24:19.592  1414  1448 I DreamController: Stopping dream: name=ComponentInfo{com.android.systemui/com.android.systemui.doze.DozeService}, isTest=false, canDoze=true, userId=0
+01-10 11:24:19.597  1414  1414 W AlarmManager: Unrecognized alarm listener com.android.server.job.controllers.idle.-$$Lambda$DeviceIdlenessTracker$-H1-ZwZAJ-vh10A0PeYXaZLj_R0@7d00ac5
+01-10 11:24:19.616   908  1054 D VSC     : @ 258.047: [Device Pickup Sensor] Stop accel
+01-10 11:24:19.626  5593  5593 I DeviceStatusMonitor: onReceive() : Action = android.intent.action.SCREEN_ON
+01-10 11:24:19.629   908  1054 D VSC     : @ 258.060: [Proximity Gated Double Tap Gesture] Stop touch_gesture
+01-10 11:24:19.629   908  1054 I ASH     : @ 258.061: touch gesture: [touch gesture] unsubscribed
+01-10 11:24:19.629   908  1054 D VSC     : @ 258.061: [Proximity Gated Double Tap Gesture] Stop proximity
+01-10 11:24:19.630   908  1054 I VSC     : @ 258.061: [double-tap-prox-gated] sensor disabled
+01-10 11:24:19.644  2897  3780 W WorkController: Loading failed for worker [trainingcache]: worker not found
+01-10 11:24:19.645  2897  3429 W ServiceWorker: TrainingCache cache SCREEN_ON failure
+01-10 11:24:19.645  2897  3429 W ServiceWorker: com.google.android.apps.gsa.search.core.service.h.a.a: No worker found for Worker ID [trainingcache].
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at com.google.android.apps.gsa.search.core.service.g.a.c.a(SourceFile:3)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at com.google.android.libraries.gsa.n.a.n.a(SourceFile:2)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at com.google.common.u.a.dk.b(SourceFile:7)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at com.google.common.u.a.cg.run(SourceFile:17)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at com.google.common.u.a.dm.run(SourceFile:10)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at com.google.apps.tiktok.concurrent.ar.run(SourceFile:2)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at com.google.apps.tiktok.concurrent.b.run(SourceFile:4)
+01-10 11:24:19.645  2897  3429 W ServiceWorker: 	at java.lang.Thread.run(Thread.java:919)
+01-10 11:24:22.491   845  1155 I netd    : trafficSwapActiveStatsMap() <0.52ms>
+01-10 11:24:22.494   845  1155 I netd    : tetherGetStats() <1.75ms>
+01-10 11:24:22.743  1414  1450 I EntropyMixer: Writing entropy...
+01-10 11:24:22.745  2823  2823 I GsaVoiceInteractionSrv: O received Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 (has extras) }
+01-10 11:24:22.746  2823  3247 I BrdcstRcvrMsgr: sendMessage(): received broadcast android.intent.action.ACTION_POWER_CONNECTED
+01-10 11:24:22.749  1414  1457 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 (has extras) } to com.google.android.apps.photos/.scheduler.PowerReceiver
+01-10 11:24:22.756  1021  1021 D NuPlayerDriver: NuPlayerDriver(0xe8d4a580) created, clientPid(1414)
+01-10 11:24:22.759  1021  1021 I Codec2Client: Creating a Codec2 client to service "software"
+01-10 11:24:22.759  1414  1457 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 (has extras) } to com.google.android.apps.turbo/.nudges.broadcasts.BatteryStatusChangedReceiver
+01-10 11:24:22.760  1414  1457 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 (has extras) } to com.google.android.gms/.gcm.nts.SchedulerReceiver
+01-10 11:24:22.760  1414  1457 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 (has extras) } to com.google.android.gms/.chimera.GmsIntentOperationService$PersistentTrustedReceiver
+01-10 11:24:22.760  1414  1457 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.ACTION_POWER_CONNECTED flg=0x4000010 (has extras) } to com.google.android.projection.gearhead/com.google.android.apps.auto.components.connectivity.impl.ConnectivityEventHandlerImpl$ConnectivityEventBroadcastReceiver
+01-10 11:24:22.762  2897  2897 I PublicSearchService: Creating pss binder().
+01-10 11:24:22.762  1021  1021 I Codec2Client: Client to Codec2 service "software" created
+01-10 11:24:22.764  2897  2936 I PublicSearchService: Calling beginBinderSession().
+01-10 11:24:22.764  1947  1947 I Elmyra/ElmyraService: Gated by ChargingState
+01-10 11:24:22.765  5295  8543 D GH.ConnLoggerV2: Session 673d733a-cbc6-41dc-866d-efa13928fb6a, event 2, USB_CHARGER_CONNECTED, at 249000
+01-10 11:24:22.765  1021  1021 I Codec2Client: Creating a Codec2 client to service "default"
+01-10 11:24:22.765  1947  2578 D PowerUI : can't show warning due to - plugged: true status unknown: false
+01-10 11:24:22.769  2823  2823 E BrdcstRcvrServiceConn: binder null, could not send broadcast of action
+01-10 11:24:22.770  1021  1021 I Codec2Client: Client to Codec2 service "default" created
+01-10 11:24:22.775  1021  8586 D GenericSource: FileSource remote
+01-10 11:24:22.788  1414  1414 D Ringtone: Successfully created local player
+01-10 11:24:22.788  1414  1414 W Ringtone: Use of stream types is deprecated for operations other than volume control
+01-10 11:24:22.788  1414  1414 W Ringtone: See the documentation of setStreamType() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+01-10 11:24:22.788  1021  1021 D NuPlayerDriver: reset(0xe8d4a580) at state 4
+01-10 11:24:22.789  1021  8584 D NuPlayerDriver: notifyResetComplete(0xe8d4a580)
+01-10 11:24:22.789  1021  2208 D NuPlayerDriver: reset(0xe8d4a580) at state 0
+01-10 11:24:22.790  1414  1414 V MediaPlayer: resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+01-10 11:24:22.790  1414  1414 V MediaPlayer: cleanDrmObj: mDrmObj=null mDrmSessionId=null
+01-10 11:24:22.790  1414  1414 V MediaPlayer: resetDrmState:  mDrmInfo=null mDrmProvisioningThread=null mPrepareDrmInProgress=false mActiveDrmScheme=false
+01-10 11:24:22.790  1414  1414 V MediaPlayer: cleanDrmObj: mDrmObj=null mDrmSessionId=null
+01-10 11:24:22.792  1021  2208 D NuPlayerDriver: NuPlayerDriver(0xe8d4aa00) created, clientPid(1414)
+01-10 11:24:22.793  1021  2208 I Codec2Client: Creating a Codec2 client to service "software"
+01-10 11:24:22.794  1021  2208 I Codec2Client: Client to Codec2 service "software" created
+01-10 11:24:22.794  1021  2208 I Codec2Client: Creating a Codec2 client to service "default"
+01-10 11:24:22.795  1021  2208 I Codec2Client: Client to Codec2 service "default" created
+01-10 11:24:22.799  1021  8594 D GenericSource: FileSource remote
+01-10 11:24:22.800   845  1155 I netd    : trafficSwapActiveStatsMap() <0.66ms>
+01-10 11:24:22.802   845  1155 I netd    : tetherGetStats() <1.19ms>
+01-10 11:24:22.808   845  1155 I netd    : trafficSwapActiveStatsMap() <0.21ms>
+01-10 11:24:22.809  1414  1414 D Ringtone: Successfully created local player
+01-10 11:24:22.810   845  1155 I netd    : tetherGetStats() <0.75ms>
+01-10 11:24:22.810  1021  8593 I GenericSource: start
+01-10 11:24:22.815  1414  1414 V MediaRouter: Selecting route: RouteInfo{ name=Телефон, description=null, status=null, category=RouteCategory{ name=Система types=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO  groupable=false }, supportedTypes=ROUTE_TYPE_LIVE_AUDIO ROUTE_TYPE_LIVE_VIDEO , presentationDisplay=null }
+01-10 11:24:22.817  1021  8598 D CCodec  : allocate(c2.android.vorbis.decoder)
+01-10 11:24:22.817  1021  8598 I Codec2Client: Creating a Codec2 client to service "default"
+01-10 11:24:22.818  1021  8598 I Codec2Client: Client to Codec2 service "default" created
+01-10 11:24:22.819  1021  8598 I CCodec  : setting up 'default' as default (vendor) store
+01-10 11:24:22.821  1021  8598 I CCodec  : Created component [c2.android.vorbis.decoder]
+01-10 11:24:22.821  1021  8598 D CCodecConfig: read media type: audio/vorbis
+01-10 11:24:22.822  1021  8598 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.max-count.values
+01-10 11:24:22.822  1021  8598 D ReflectedParamUpdater: extent() != 1 for single value type: output.subscribed-indices.values
+01-10 11:24:22.822  1021  8598 D ReflectedParamUpdater: extent() != 1 for single value type: input.buffers.allocator-ids.values
+01-10 11:24:22.822  1021  8598 D ReflectedParamUpdater: extent() != 1 for single value type: output.buffers.allocator-ids.values
+01-10 11:24:22.822  1021  8598 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.allocator-ids.values
+01-10 11:24:22.822  1021  8598 D ReflectedParamUpdater: extent() != 1 for single value type: output.buffers.pool-ids.values
+01-10 11:24:22.822  1021  8598 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.pool-ids.values
+01-10 11:24:22.823  1021  8598 I CCodecConfig: query failed after returning 7 values (BAD_INDEX)
+01-10 11:24:22.823  1021  8598 D CCodecConfig: c2 config diff is Dict {
+01-10 11:24:22.823  1021  8598 D CCodecConfig:   c2::u32 coded.bitrate.value = 64000
+01-10 11:24:22.823  1021  8598 D CCodecConfig:   c2::u32 input.buffers.max-size.value = 32768
+01-10 11:24:22.823  1021  8598 D CCodecConfig:   c2::u32 input.delay.value = 0
+01-10 11:24:22.823  1021  8598 D CCodecConfig:   string input.media-type.value = "audio/vorbis"
+01-10 11:24:22.823  1021  8598 D CCodecConfig:   string output.media-type.value = "audio/raw"
+01-10 11:24:22.823  1021  8598 D CCodecConfig:   c2::u32 raw.channel-count.value = 1
+01-10 11:24:22.823  1021  8598 D CCodecConfig:   c2::u32 raw.sample-rate.value = 48000
+01-10 11:24:22.823  1021  8598 D CCodecConfig: }
+01-10 11:24:22.823  1021  8598 D CCodecConfig: no c2 equivalents for durationUs
+01-10 11:24:22.823  1021  8598 D CCodecConfig: no c2 equivalents for csd-1
+01-10 11:24:22.823  1021  8598 D CCodecConfig: no c2 equivalents for channel-mask
+01-10 11:24:22.824  1021  8598 W Codec2Client: query -- param skipped: index = 1107298332.
+01-10 11:24:22.824  1021  8598 D CCodec  : setup formats input: AMessage(what = 0x00000000) = {
+01-10 11:24:22.824  1021  8598 D CCodec  :   int32_t channel-count = 1
+01-10 11:24:22.824  1021  8598 D CCodec  :   int32_t max-input-size = 32768
+01-10 11:24:22.824  1021  8598 D CCodec  :   string mime = "audio/vorbis"
+01-10 11:24:22.824  1021  8598 D CCodec  :   int32_t sample-rate = 48000
+01-10 11:24:22.824  1021  8598 D CCodec  : } and output: AMessage(what = 0x00000000) = {
+01-10 11:24:22.824  1021  8598 D CCodec  :   int32_t channel-count = 1
+01-10 11:24:22.824  1021  8598 D CCodec  :   string mime = "audio/raw"
+01-10 11:24:22.824  1021  8598 D CCodec  :   int32_t sample-rate = 48000
+01-10 11:24:22.824  1021  8598 D CCodec  :   int32_t channel-mask = 1
+01-10 11:24:22.824  1021  8598 D CCodec  : }
+01-10 11:24:22.824  1021  8598 I MediaCodec: MediaCodec will operate in async mode
+01-10 11:24:22.824  1021  8598 W Codec2Client: query -- param skipped: index = 1342179345.
+01-10 11:24:22.824  1021  8598 W Codec2Client: query -- param skipped: index = 2415921170.
+01-10 11:24:22.825  1021  8598 D BufferPoolAccessor: bufferpool2 0xe4986c10 : 11(360448 size) total buffers - 7(229376 size) used buffers - 125/136 (recycle/alloc) - 11/268 (fetch/transfer)
+01-10 11:24:22.825  1021  8598 D CCodecBufferChannel: [c2.android.vorbis.decoder#4] Created input block pool with allocatorID 16 => poolID 19 - OK (0)
+01-10 11:24:22.825  1055  1289 D BufferPoolAccessor: bufferpool2 0x2a72462e30 : 6(98304 size) total buffers - 0(0 size) used buffers - 126/132 (recycle/alloc) - 6/131 (fetch/transfer)
+01-10 11:24:22.826  1021  8598 I CCodecBufferChannel: [c2.android.vorbis.decoder#4] Created output block pool with allocatorID 16 => poolID 31 - OK
+01-10 11:24:22.826  1021  8598 D CCodecBufferChannel: [c2.android.vorbis.decoder#4] Configured output block pool ids 31 => OK
+01-10 11:24:22.826  1055  8599 D SimpleC2Component: Using output block pool with poolID 31 => got 31 - 0
+01-10 11:24:22.834   929  1904 D AudioFlinger: Client defaulted notificationFrames to 12000 for frameCount 24000
+01-10 11:24:22.837   929  1904 D AF::TrackHandle: OpPlayAudio: track:58 usage:13 not muted
+01-10 11:24:22.839   890  6062 D audio_route: Apply path: speaker
+01-10 11:24:22.839   907   907 D android.hardware.power@1.3-service.pixel-libperfmgr: AUDIO_STREAMING: 1
+01-10 11:24:22.840   890  6062 D audio_hw_primary: enable_snd_device: snd_device(104: vi-feedback)
+01-10 11:24:22.840   890  6062 D audio_route: Apply path: vi-feedback
+01-10 11:24:22.840   890  6062 E audio_hw_utils: audio_extn_utils_send_app_type_cfg: Failed to derive app_type for uc type : 0x1
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 512, path = 1, app id = 0x11132, sample rate = 48000
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_asm_topology
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TOPOLOGY_ID
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_adm_topology
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TOPOLOGY_ID
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_audtable
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TABLE_SIZE
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TABLE
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> AUDIO_SET_AUDPROC_CAL
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_audvoltable
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_VOL_STEP_TABLE_SIZE
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_GAIN_DEP_STEP_TABLE, vol index 0
+01-10 11:24:22.840   890  6062 D         : Failed to fetch the lookup information of the device 00000200 
+01-10 11:24:22.840   890  6062 E ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> AUDIO_SET_VOL_CAL cal type = 12
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TABLE_SIZE
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_audstrmtable
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TABLE_V2
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> audstrm_cal->cal_type.cal_data.cal_size = 16
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_afe_topology
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_TOPOLOGY_ID
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 512, Topology Id 10001ccc
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_afe_cal
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_COMMON_TABLE_SIZE
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_COMMON_TABLE
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> AUDIO_SET_AFE_CAL
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> send_hw_delay : acdb_id = 512 path = 1
+01-10 11:24:22.840   890  6062 D ACDB-LOADER: ACDB -> ACDB_AVSYNC_INFO: ACDB_CMD_GET_DEVICE_PROPERTY
+01-10 11:24:22.840   890  6062 D audio_hw_primary: enable_audio_route: usecase(25) apply and update mixer path: spkr-vi-record vi-feedback
+01-10 11:24:22.840   890  6062 D audio_route: Apply path: spkr-vi-record vi-feedback
+01-10 11:24:22.873   890  6062 D ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 513, path = 0, app id = 0x11130, sample rate = 48000
+01-10 11:24:22.873   890  6062 D ACDB-LOADER: ACDB -> send_asm_topology
+01-10 11:24:22.873   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TOPOLOGY_ID
+01-10 11:24:22.873   890  6062 D ACDB-LOADER: ACDB -> send_adm_topology
+01-10 11:24:22.873   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TOPOLOGY_ID
+01-10 11:24:22.873   890  6062 D ACDB-LOADER: ACDB -> send_audtable
+01-10 11:24:22.873   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TABLE_SIZE
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TABLE
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> AUDIO_SET_AUDPROC_CAL
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> send_audvoltable
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_VOL_STEP_TABLE_SIZE
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_GAIN_DEP_STEP_TABLE, vol index 0
+01-10 11:24:22.874   890  6062 D         : Failed to fetch the lookup information of the device 00000201 
+01-10 11:24:22.874   890  6062 E ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> AUDIO_SET_VOL_CAL cal type = 12
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TABLE_SIZE
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> send_audstrmtable
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TABLE_V2
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> audstrm_cal->cal_type.cal_data.cal_size = 456
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> send_afe_topology
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_TOPOLOGY_ID
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 513, Topology Id 10000ccc
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> send_afe_cal
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_COMMON_TABLE_SIZE
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_COMMON_TABLE
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> AUDIO_SET_AFE_CAL
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> send_hw_delay : acdb_id = 513 path = 0
+01-10 11:24:22.874   890  6062 D ACDB-LOADER: ACDB -> ACDB_AVSYNC_INFO: ACDB_CMD_GET_DEVICE_PROPERTY
+01-10 11:24:22.874   890  6062 D audio_hw_primary: enable_audio_route: usecase(1) apply and update mixer path: low-latency-playback speaker
+01-10 11:24:22.874   890  6062 D audio_route: Apply path: low-latency-playback speaker
+01-10 11:24:22.918   911  1909 I android.hardware.usb@1.1-service.crosshatch: uevent received DEVTYPE=typec_port
+01-10 11:24:22.919   911  1909 I android.hardware.usb@1.1-service.crosshatch: port0
+01-10 11:24:22.919   911  1909 I android.hardware.usb@1.1-service.crosshatch: connected:0 canChangeMode:1 canChagedata:0 canChangePower:0
+01-10 11:24:22.919  1414  1876 I UsbPortManager: ClientCallback V1_1: port0
+01-10 11:24:22.919   911  1909 I android.hardware.usb@1.1-service.crosshatch: uevent received DEVTYPE=typec_port
+01-10 11:24:22.920   911  1909 I android.hardware.usb@1.1-service.crosshatch: port0
+01-10 11:24:22.920   911  1909 I android.hardware.usb@1.1-service.crosshatch: connected:0 canChangeMode:1 canChagedata:0 canChangePower:0
+01-10 11:24:22.920  1414  2553 I UsbPortManager: ClientCallback V1_1: port0
+01-10 11:24:22.928   890  6062 D audio_hw_primary: out_write: retry previous failed cal level set
+01-10 11:24:22.929   907   907 D android.hardware.power@1.3-service.pixel-libperfmgr: AUDIO_STREAMING: 0
+01-10 11:24:22.944  1947  2578 D PowerUI : can't show warning due to - plugged: true status unknown: false
+01-10 11:24:23.272  1947  1947 I Elmyra/ElmyraService: Gated by KeyguardDeferredSetup [mDeferredSetupComplete -> false]
+01-10 11:24:23.300  1414  1448 D UsbDeviceManager: push notification:Зарядка устройства через USB…
+01-10 11:24:23.322  1947  1947 I Elmyra/ElmyraService: Gated by UsbState
+01-10 11:24:23.395  1947  2578 D PowerUI : can't show warning due to - plugged: true status unknown: false
+01-10 11:24:23.425  1947  1947 D InterruptionStateProvider: No heads up: unimportant notification: -1|android|32|null|1000
+01-10 11:24:23.426  1947  1947 D InterruptionStateProvider: No heads up: unimportant notification: -1|android|26|null|1000
+01-10 11:24:23.450   911  1167 I android.hardware.usb.gadget@1.0-service.crosshatch: event=1 on fd=8
+01-10 11:24:23.450  1113  8553 I adbd    : USB event: FUNCTIONFS_ENABLE
+01-10 11:24:23.669  1947  2578 I chatty  : uid=10156(com.android.systemui) pool-5-thread-1 identical 1 line
+01-10 11:24:23.831  1947  1947 I Elmyra/ElmyraService: Gated by KeyguardDeferredSetup [mDeferredSetupComplete -> false]
+01-10 11:24:23.932  1947  2578 D PowerUI : can't show warning due to - plugged: true status unknown: false
+01-10 11:24:24.497  1113  1113 I adbd    : UsbFfs: already offline
+01-10 11:24:24.498  1113  1113 I adbd    : Calling send_auth_request...
+01-10 11:24:24.503  1113  1113 I adbd    : Loading keys from /data/misc/adb/adb_keys
+01-10 11:24:24.504  1113  1113 I adbd    : adb client authorized
+01-10 11:24:24.505  1414  2654 D AdbDebuggingManager: Received connected key message: QAAAAL8YXtjBqK5x/g3UIiv/cbmp0PPu7N9IaKoX7GjQmdsZmRL/6yrY9pX/fXe4es1V8ZoI2NkDcgKQMPpP/zZh9ITI+YvCJIgg+tp3H7SuP9FebgRnccX0RCm107JOqIbkc7CafqoaUx3UihikcPtCoXwi/Vay44VhxzX6TmCByp89x9MkK00xRdHiO4op2LHdzLndw/NTtm9IiONP9twQzAF1kafglXqA8P/587aIOnvVU+ekFtiCMPXCa+VNWSl13INLP7zYsmURCFiIqR/hBYzMzxlwnvzQzfSVYLVRoDp/+OkT2lD/7rJ7K4YHxz9RrcCumDeKoiESXHcDCqcBqUA6IYGCVxyGwF4TeVjQRkmOitIwAxNGNUZ6CLHuGqVWA4lv8wBDLzG8dUQ8xLGZJBDNKl3i9Sr+HbEd4VXb/rPaz1bS7zicmzGqHbfr/UOE3MqYjC7nEaBZVmvUv63zuMFeecZWyxPhWY8nuSGei0xvQit8I8ej5Y1SyPB+QAptD2tVNcoPi4J7gTXIdVbDLY+JwMJOKLsnXOG3er9xX03c+1dMW2SywkNaR5jc2Q/0PLvLb6wOMJuRL4hI+g6x2XDPM3hPCYX9ja5+fQ0gT+h87U+mbjhQMghFAOKK4PrumMPgTvkCR1K6D8nv71Zq30BmLC8dOsJsNzK6SO/ZYgO7B1yUCAEAAQA= el@devbook
+01-10 11:24:24.506  1414  1448 D AdbDebuggingManager: Logging key QAAAAL8YXtjBqK5x/g3UIiv/cbmp0PPu7N9IaKoX7GjQmdsZmRL/6yrY9pX/fXe4es1V8ZoI2NkDcgKQMPpP/zZh9ITI+YvCJIgg+tp3H7SuP9FebgRnccX0RCm107JOqIbkc7CafqoaUx3UihikcPtCoXwi/Vay44VhxzX6TmCByp89x9MkK00xRdHiO4op2LHdzLndw/NTtm9IiONP9twQzAF1kafglXqA8P/587aIOnvVU+ekFtiCMPXCa+VNWSl13INLP7zYsmURCFiIqR/hBYzMzxlwnvzQzfSVYLVRoDp/+OkT2lD/7rJ7K4YHxz9RrcCumDeKoiESXHcDCqcBqUA6IYGCVxyGwF4TeVjQRkmOitIwAxNGNUZ6CLHuGqVWA4lv8wBDLzG8dUQ8xLGZJBDNKl3i9Sr+HbEd4VXb/rPaz1bS7zicmzGqHbfr/UOE3MqYjC7nEaBZVmvUv63zuMFeecZWyxPhWY8nuSGei0xvQit8I8ej5Y1SyPB+QAptD2tVNcoPi4J7gTXIdVbDLY+JwMJOKLsnXOG3er9xX03c+1dMW2SywkNaR5jc2Q/0PLvLb6wOMJuRL4hI+g6x2XDPM3hPCYX9ja5+fQ0gT+h87U+mbjhQMghFAOKK4PrumMPgTvkCR1K6D8nv71Zq30BmLC8dOsJsNzK6SO/ZYgO7B1yUCAEAAQA= el@devbook, state = 4, alwaysAllow = true, lastConnectionTime = 1578644664506, authWindow = 604800000
+01-10 11:24:24.939  1947  2578 D PowerUI : can't show warning due to - plugged: true status unknown: false
+01-10 11:24:25.211   911  1909 I android.hardware.usb@1.1-service.crosshatch: partner added
+01-10 11:24:25.212   911  1909 I android.hardware.usb@1.1-service.crosshatch: uevent received DEVTYPE=typec_partner
+01-10 11:24:25.213   911  1909 I android.hardware.usb@1.1-service.crosshatch: port0
+01-10 11:24:25.214   911  1909 I android.hardware.usb@1.1-service.crosshatch: connected:1 canChangeMode:1 canChagedata:0 canChangePower:0
+01-10 11:24:25.214  1414  2553 I UsbPortManager: ClientCallback V1_1: port0
+01-10 11:24:25.215  1414  1448 I UsbPortManager: USB port changed: port=UsbPort{id=port0, supportedModes=dualsupportedContaminantProtectionModes=0supportsEnableContaminantPresenceProtection=falsesupportsEnableContaminantPresenceDetection=false, status=UsbPortStatus{connected=true, currentMode=ufp, currentPowerRole=sink, currentDataRole=device, supportedRoleCombinations=[source:host, sink:device], contaminantDetectionStatus=0, contaminantProtectionStatus=0}, canChangeMode=true, canChangePowerRole=false, canChangeDataRole=false, connectedAtMillis=251454, lastConnectDurationMillis=0
+01-10 11:24:25.229  1021  8598 D CCodecBufferChannel: [c2.android.vorbis.decoder#4] buffers after EOS ignored (0 us)
+01-10 11:24:25.230  1021  8598 I chatty  : uid=1013(media) NPDecoder-CL identical 1 line
+01-10 11:24:25.230  1021  8598 D CCodecBufferChannel: [c2.android.vorbis.decoder#4] buffers after EOS ignored (0 us)
+01-10 11:24:25.231  1021  8596 D AudioTrack: stop(31): called with 132832 frames delivered
