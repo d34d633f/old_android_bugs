@@ -1,0 +1,26 @@
+Android libavc heap overflow 
+
+How to reproduce:
+1) checkout libavc
+2) compile standalone decoder test/decoder/main.c with ASAN
+3) run decoder: ./dec -i 1.bin
+
+
+ASAN trace:
+==6706==ERROR: AddressSanitizer: heap-buffer-overflow on address 0xf4415a3f at pc 0x8163ccf bp 0xffc14e28 sp 0xffc14e20
+WRITE of size 704 at 0xf4415a3f thread T0
+    #0 0x8163cce in ih264d_fmt_conv_420sp_to_420sp /dist/src/android/libavc1410/decoder/ih264d_format_conv.c:400
+    #1 0x81644cb in ih264d_format_convert /dist/src/android/libavc1410/decoder/ih264d_format_conv.c:752
+    #2 0x80e5924 in ih264d_video_decode /dist/src/android/libavc1410/decoder/ih264d_api.c:2368
+    #3 0x80da512 in main /dist/src/android/libavc1410/decoder/t1.c:2852
+    #4 0xf7553af2 (/lib/i386-linux-gnu/libc.so.6+0x19af2)
+    #5 0x80d2ba4 in _start (/dist/src/android/libavc_fuzz/t1a+0x80d2ba4)
+
+0xf4415a3f is located 191 bytes to the right of 86400-byte region [0xf4400800,0xf4415980)
+allocated by thread T0 here:
+    #0 0x80bb7d1 in __interceptor_malloc (/dist/src/android/libavc_fuzz/t1a+0x80bb7d1)
+    #1 0x80d8cdc in main /dist/src/android/libavc1410/decoder/t1.c:2444
+    #2 0xf7553af2 (/lib/i386-linux-gnu/libc.so.6+0x19af2)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow /dist/src/android/libavc1410/decoder/ih264d_format_conv.c:400 ih264d_fmt_conv_420sp_to_420sp
+
